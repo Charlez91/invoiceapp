@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>TAX INVOICE</title>
+      <style>
+      
+    body {
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        text-align: center;
+        color: #777;
+        margin: 0;
+        padding: 0;
+    }
+    
+    body .wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        max-width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 20px 30px;
+    }
+    
+    body .wrapper .top {
+        display: inline;
+        width: 100%;
+    }
+    
+    .top h3 {
+        font-weight: 300;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-style: italic;
+        color: rgb(48, 36, 100);
+        float: left;
+    }
+    
+    .top h4 {
+        font-weight: 300;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        font-style: italic;
+        color: rgb(48, 36, 100);
+        float: right;
+    }
+    
+    body a {
+        color: #06F;
+    }
+    
+    .invoice-box {
+        margin: 90px auto 20px auto;
+        max-width: 1200px;
+        padding: 20px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+        font-size: 14px;
+        line-height: 18px;
+        font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color: #555;
+        height: auto;
+    }
+    
+    .invoice-box .invoice-box-top .container {
+        display: table;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .invoice-box .invoice-box-top {
+        display: table;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .invoice-box .invoice-box-top .col-lft-6 {
+        display: table-cell;
+        text-align: left;
+        vertical-align: middle;
+        width: 50%;
+        padding: 1rem;
+    }
+    
+    .invoice-box .invoice-box-top .col-rght-6 {
+        display: table-cell;
+        text-align: right;
+        vertical-align: middle;
+        width: 50%;
+    }
+    
+    .invoice-box table {
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+    }
+    
+    .invoice-box table td,
+    .invoice-box table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    .invoice-box table td {
+        padding: 5px;
+        vertical-align: top;
+        color: #000;
+    }
+    
+    .invoice-box table td strong {
+        font-weight: 600;
+    }
+    
+    .invoice-box table tr:nth-child(even) {
+        background-color: #f2f2f2
+    }
+    
+    .invoice-box table tr:hover {
+        background-color: #ddd;
+    }
+    
+    .invoice-box table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+    }
+    
+    .invoice-box .total-summary {
+        /* float: right; */
+        text-align: right;
+    }
+    
+    .invoice-box .total-footer {
+        /* float: right; */
+        text-align: left;
+    }
+    
+    .invoice-box .abf-card {
+        border: 5px solid #0e290f;
+        padding: 20px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, .15);
+        border-radius: 10px;
+        text-align: left;
+        margin: 10px auto;
+    }
+    
+    .invoice-footer {
+        text-align: center;
+        line-height: 16px;
+        margin: 30px auto;
+    }
+      </style>
+   </head>
+   <body>
+      <div class='wrapper'>
+         <div class='top'>
+            <h3>TAX INVOICE</h3>
+            <h5>
+               From {{start_date}} to {{end_date}}</h5>
+         </div>
+         <div class='invoice-box'><div class=''><div class='col-rght-12' >
+            <img src='data:image/gif;base64,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'>
+            </div><div class='invoice-box-top'>
+                <div class='col-lft-6'>
+                    <h4>Account Name : {{company_instance.compname}} </h4>
+                    <h4>Address : {{company_instance.compstreet}} {{company_instance.compsuburb}} {{company_instance.compstate}} {{company_instance.comppostcode}}</h4>
+                </div>
+                <div class='col-rght-6'>
+                    <h4>Invoice Number : {{invoice_instance.invoice_id}} </h4>
+                    <h4>Invoice Date : {{date_now}}</h4>
+                </div>
+            </div>
+        </div>
+        <div class='container'>
+            <table>
+                <thead>
+                    <tr>
+                        <th scope='col'>#</th>
+                        <th>Username</th>
+                        <th scope='col'>Date Ordered</th>
+                        <th scope='col'>Reference</th>
+                        <th scope='col'>Client Reference</th>
+                        <th scope='col'>Disb.</th>
+                        <th scope='col'>Charge</th>
+                        <th scope='col'>Disb. & Charge</th>
+                        <th scope='col'>GST Amount</th>
+                        <th scope='col'>Disb. & Charge (GST Inc.)</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        {% for x in invoices %}
+                        <tr>
+                            <th scope='row'>{{ forloop.counter }}</th>
+                            <td>{{x.username}}</td>
+                            <td>{{x.date_ordered}}</td>
+                            <td>{{x.reference}}</td>
+                            <td>{{x.client_reference}}</td>
+                            <td>{{x.disb}}</td>
+                            <td>{{x.charge}}</td>
+                            <td>{{x.disb_charge}}</td>
+                            <td>{{x.gst_amount}}</td>
+                            <td>{{x.gst_inc}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+    
+                    </table>
+                </div>
+                <div class='container'>
+                    <div class='total-summary'>
+                        <h4>Disb. & Charge : <strong>{{total}}</strong></h4>
+                        {% if company_discount != 0 %}
+                        <h4>Amount({{total}}) - Discount ({{company_discount}}%) : {{total_after_discount}}</h4>
+                        {% endif %}
+                        <h4> Taxes GST : {{tax}}</h4>
+                        <h3> Total Invoice Amount : {{real_total}}</h3>
+                    </div>
+                    <hr>
+                </div>
+                <div class="container">
+
+                    <div class="total-footer">
+                        <h4> <strong>Invoice Term : 7 Day Account</strong></h4>
+                    </div>
+
+                </div>
+                <div class="container">
+                    <div class="abf-card"> 
+                        <p> Payment can be made via credit card or cheque. 
+                            Please ensure the "invoice Number" is quoted when 
+                            forwarding or completing all payments via CC, 
+                            EFT OR CHQ. ie: 71083 </p> <p> 
+                                <strong>Banking Details</strong> 
+                            </p> <p> Name : R. Hazlett & Co
+                                <br> Bank : COMMONWEALTH BANK
+                                <br> BSB : 062021<br> Account : 10244749 
+                            </p> <p> <strong>CARD NUMBER</strong>_ _ _ _ _ _ _ _ _ _ _ __ _ _ _ _ _ _ _ _ _<br> 
+                                <STRONG></STRONG> <strong>EXPIRY: _ _/_ _</strong> AMOUNT TO CHARGE : $__ __ </p> </div>
+                            </div></div> 
+         <div class="container">
+            <div class="invoice-footer">
+                <span>Level 704/60 Park Street, Sydney 2000 | DX 1078 SYDNEY<span>
+                    <br></br>
+                <STRONG>GPO Box 96, Sydney 2001</STRONG>
+                <br>
+                <span>Phone : 02 92615211 Fax : 02 92647752</span>
+                <br>
+                <span> R Hazlett & Co. ABN 20 104 470 340</span>
+                <br>
+                <span>www.hazlett.com.au</span>
+                <br>
+            </p></div>
+         </div>
+      </div>
+   </body>
+</html>

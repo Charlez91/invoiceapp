@@ -1,0 +1,69 @@
+{% extends "base/welcome_base.html" %}
+    {% load static %}
+    {% block content %}
+        <div class="overlay"></div>
+
+        <section class="box-area">
+            <div class="interactive-box">
+                
+                <h1>Welcome</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="sdate">Start Date:</label>
+                                <input type="date" class="form-control" id="sdate">
+                              </div>
+                              <div class="form-group">
+                                <label for="edate">End Date:</label>
+                                <input type="date" class="form-control" id="edate">
+                              </div>
+                            <div class="text-center my-4">
+                                <h2>To Start Invoice Generator click on the start button.</h2>
+                            </div>
+                
+                        </div>
+                        <div class="col-md-12">
+                            <div class="text-center my-4">
+                                <a href="#" class="btn btn-outline-success rounded-pill start-btn">
+                                    START !
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="list deactivated">
+            <div class="interactive-box">
+            
+                <h1>Invoices</h1>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center display-4">
+                                Invoices
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {% load static %}
+                            <ul class="invoice">
+                                <!-- <li class="text-center">
+                                    <a href="{% static "files/invoice-1.pdf" %}">
+                                        inoice-1.pdf
+                                    </a>
+                                </li> -->
+                            </ul>
+                    </div>
+                </div>
+            </div>
+        
+        </section>
+
+        
+
+    {% endblock content %}

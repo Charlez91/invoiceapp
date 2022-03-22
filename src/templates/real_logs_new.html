@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Migration Logs</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Migration Logs</h2>       
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>CSV_ID</th>t
+        <th>User Name</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function(){
+    var password = prompt("Please enter your password");
+    $.ajax({url: "/password/logs/check/company", method:'POST', data:{password: password}, success: function(result){
+
+      if(result.status == true || result.status == 'True'){
+        $("#tbody").html(result.body) 
+      }
+      else{
+        alert("Invalid Password")
+      }
+    }});
+  })
+</script>
+</body>
+</html>

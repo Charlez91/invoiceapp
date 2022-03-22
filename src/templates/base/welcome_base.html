@@ -1,0 +1,45 @@
+{% load static %}
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% load static %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static "css/bootstrap/bootstrap.min.css" %}">
+
+    <!-- icon CSS -->
+    <link rel="stylesheet" href="{% static "css/fontawesome/all.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/fontawesome/fontawesome.min.css" %}">
+
+    <!-- persnnal CSS -->
+    <link rel="stylesheet" href="{% static "css/personal/welcomePage.css" %}">
+
+    <title>Hazyds Water - Invoice Generator</title>
+
+    <!-- JavaScript -->
+    {% load static %}
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static "js/jquery/jquery-3.4.1.min.js" %}"></script>
+    <script src="{% static "js/jquery/jquery-migrate.min.js" %}"></script>
+    <script src="{% static "js/bootstrap/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/bootstrap/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "js/swal/sweetalert2.all.min.js" %}"></script>
+    <!-- Plugins js -->
+    <!-- <script src="js/plugins.js"></script> -->
+
+
+</head>
+
+<body id="faded-pic-background">
+    {% block content %}
+
+    {% endblock %}
+    <!--personnal JS-->
+    <script src="{% static "js/personal/script_1.js" %}"></script>
+</body>
+
+</html>
